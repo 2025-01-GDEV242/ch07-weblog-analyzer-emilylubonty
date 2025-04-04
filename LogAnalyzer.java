@@ -92,6 +92,33 @@ public class LogAnalyzer
     }
     
     /**
+     * Displays the busiest hours within a two hour frame. 
+     * 
+     * @param total Total number of accesses
+     * @param displayHour Display first hour within string/print statement
+     * @param secondHour Display the second hour within string/print statement
+     */
+    public int busiestTwoHour()
+    {
+        int total = hourCounts[0]; 
+        int secondTotal = hourCounts[0];
+        int displayHour = 0; 
+        int secondHour = 0;
+        
+        for (int hour = 0 + 1; hour < hourCounts.length; hour++){
+            if (total < hourCounts[hour]){ 
+                displayHour = hour; 
+                secondHour = displayHour + 1;
+                total = hourCounts[hour] + secondTotal;
+            }
+        }
+        System.out.println("The busiest two hours were between " + displayHour + " and " + secondHour 
+                            + " with " + total + " total accesses.");
+        
+        return total; 
+    }
+    
+    /**
      * Displays the quietest hour with total number of accesses.
      * 
      * @param total Total number of accesses
@@ -114,16 +141,7 @@ public class LogAnalyzer
         return total; 
     }
 
-    /**
-     * Displays the busiest hours within 2 hour frames. 
-     * 
-     */
-    public int busiestTwoHour()
-    {
-        int total = 0; 
-        return total; 
-    }
-    
+
     /**
      * Print the lines of data read by the LogfileReader
      */
