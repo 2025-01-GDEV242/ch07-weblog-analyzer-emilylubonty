@@ -54,6 +54,7 @@ public class LogAnalyzer
      * Prints the number of accesses during certain hours
      * 
      * @param total The total number of accesses 
+     * @return return Returns total number of accesses 
      */
     public int numberOfAccesses()
     {
@@ -73,6 +74,7 @@ public class LogAnalyzer
      * 
      * @param total Total number of accesses
      * @param displayHour Display hour in string/print statement
+     * @return return Returns total number of accesses 
      */
     public int busiestHour()
     {
@@ -97,6 +99,7 @@ public class LogAnalyzer
      * @param total Total number of accesses
      * @param displayHour Display first hour within string/print statement
      * @param secondHour Display the second hour within string/print statement
+     * @return return Returns total number of accesses 
      */
     public int busiestTwoHour()
     {
@@ -123,6 +126,7 @@ public class LogAnalyzer
      * 
      * @param total Total number of accesses
      * @param displayHour Display hour in string/print statement
+     * @return return Returns total number of accesses 
      */
     public int quietestHour()
     { 
