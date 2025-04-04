@@ -36,8 +36,6 @@ public class LogAnalyzer
             hourCounts[hour]++;
         }
     }
-    
-    
 
     /**
      * Print the hourly counts.
@@ -51,6 +49,7 @@ public class LogAnalyzer
             System.out.println(hour + ": " + hourCounts[hour]);
         }
     }
+    
     /**
      * Prints the number of accesses during certain hours
      * 
@@ -70,23 +69,21 @@ public class LogAnalyzer
     }
     
     /**
-     * Prints the busiest hour with number of accesses
+     * Prints the busiest hour with number of accesses.
      * 
      * @param total Total number of accesses
      * @param displayHour Display hour in string/print statement
      */
     public int busiestHour()
     {
-        int total = 0;
+        int total = hourCounts[0];
         int displayHour = 0; 
         
-        for (int hour : hourCounts){
-            
-            if (total > hour || total < hour || total == hour){ 
+        for (int hour = 1; hour < hourCounts.length; hour++){
+            if (total < hourCounts[hour]){ 
                 displayHour = hour; 
                 total = hourCounts[hour];
             }
-            
         }
         System.out.println("The busiest hour was " + displayHour + 
                             " with " + total + " accesses.");
@@ -95,14 +92,37 @@ public class LogAnalyzer
     }
     
     /**
-     * Displays the quietest hour
+     * Displays the quietest hour with total number of accesses.
      * 
+     * @param total Total number of accesses
+     * @param displayHour Display hour in string/print statement
      */
     public int quietestHour()
-    {
+    { 
+        int total = hourCounts[0];
+        int displayHour = 0; 
         
+        for (int hour = 1; hour < hourCounts.length; hour++){
+            if (total > hourCounts[hour]){ 
+                displayHour = hour; 
+                total = hourCounts[hour];
+            }      
+        }
+        System.out.println("The quietest hour was " + displayHour + 
+                            " with " + total + " accesses.");
+                            
+        return total; 
     }
-    
+
+    /**
+     * Displays the busiest hours within 2 hour frames. 
+     * 
+     */
+    public int busiestTwoHour()
+    {
+        int total = 0; 
+        return total; 
+    }
     
     /**
      * Print the lines of data read by the LogfileReader
